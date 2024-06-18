@@ -1,24 +1,17 @@
-import logo from './logo.svg';
 import './App.css';
+import PackageForm from './package-manager/packageForm';
+import DisplayAll from './package-manager/display-all-list'
+import { Route, Routes } from 'react-router-dom';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Routes>
+      {/* packages */}
+      <Route path="/" element={<DisplayAll />} />
+      <Route path="/all" element={<DisplayAll />} />
+      <Route path="/edit" element={<PackageForm type='edit' />} />
+      <Route path="/add" element={<PackageForm type='add' />} />
+    </Routes>
   );
 }
 
